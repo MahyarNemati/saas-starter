@@ -30,7 +30,10 @@ const schema = z
       ctx.addIssue({ code: "custom", message: "configure at least one sign-in provider" });
     }
     if (Boolean(env.AUTH_GITHUB_ID) !== Boolean(env.AUTH_GITHUB_SECRET)) {
-      ctx.addIssue({ code: "custom", message: "AUTH_GITHUB_ID and AUTH_GITHUB_SECRET go together" });
+      ctx.addIssue({
+        code: "custom",
+        message: "AUTH_GITHUB_ID and AUTH_GITHUB_SECRET go together",
+      });
     }
     if (env.STRIPE_SECRET_KEY && !env.STRIPE_WEBHOOK_SECRET) {
       ctx.addIssue({ code: "custom", message: "STRIPE_WEBHOOK_SECRET is required with Stripe" });
