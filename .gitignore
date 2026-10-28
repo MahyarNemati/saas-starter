@@ -11,3 +11,5 @@ next-env.d.ts
 !.env.example
 .dev-outbox.json
 .DS_Store
+
+vitest-results.json

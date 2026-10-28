@@ -5,7 +5,7 @@ const policy = { capacity: 3, refillPerSecond: 1 };
 
 describe("MemoryRateLimiter", () => {
   it("allows a burst up to capacity, then refuses with a retry hint", async () => {
-    let now = 0;
+    const now = 0;
     const rl = new MemoryRateLimiter(() => now);
     for (let i = 0; i < 3; i += 1) expect((await rl.consume("k", policy)).allowed).toBe(true);
     const refused = await rl.consume("k", policy);
